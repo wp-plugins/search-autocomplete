@@ -12,7 +12,7 @@ header( 'Content-Type: application/javascript' );
 			}
 		}
 		return '';
-	}
+	}  
 $path = get_root_directory();
 require_once($path.'/wp-config.php');
 $wpdb =& $GLOBALS['wpdb'];
