@@ -9,7 +9,7 @@ Stable tag: 1.0.1
 SearchAutocomplete implements the jQuery UI Autocomplete functionality on your Wordpress installation.
 
 == Description ==
-
+ 
 SearchAutocomplete implements the jQuery UI Autocomplete functionality on your Wordpress installation. It provides several basic options such as:
 
 * jQuery ThemeRoller integration
