@@ -49,9 +49,14 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 
 == Change log ==
 
+* 1.0.1 [20 Feb 2011] - Fixed a pathing issue for the CSS
+
 * 1.0 [20 Feb 2011] - Initial submition of the plugin
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Fixed a pathing issue for the CSS
 
 = 1.0 =
 This is the first version.
