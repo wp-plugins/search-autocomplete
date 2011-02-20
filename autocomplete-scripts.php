@@ -1,18 +1,18 @@
 <?php
 header( 'Content-Type: application/javascript' );
-function get_root_directory() {
-	$arr_directory = explode('\\',dirname(__FILE__));
-	for($i=0;$i<count($arr_directory);$i++) {
-		$strreturn = '';
-		for($j=0;$j<$i;$j++) {
-			$strreturn .= $arr_directory[$j].'\\';
+	function get_root_directory() {
+		$arr_directory = explode('/',dirname(__FILE__));
+		for($i=0;$i<count($arr_directory);$i++) {
+			$strreturn = '';
+			for($j=0;$j<$i;$j++) {
+				$strreturn .= $arr_directory[$j].'/';
+			}
+			if (@file_exists($strreturn.'wp-config.php')) {
+				return $strreturn;
+			}
 		}
-		if (@file_exists($strreturn.'wp-config.php')) {
-			return $strreturn;
-		}
+		return '';
 	}
-	return '';
-}
 $path = get_root_directory();
 require_once($path.'/wp-config.php');
 $wpdb =& $GLOBALS['wpdb'];

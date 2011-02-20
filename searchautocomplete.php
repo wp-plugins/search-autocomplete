@@ -9,12 +9,12 @@
  */
 function add_search_js() {
 	if (!is_admin()) {
-		wp_register_style('autocompletestyles', WP_PLUGIN_URL.'/searchautocomplete/css/'.get_option('autocomplete_theme').'/jquery-ui-1.8.9.custom.css');
+		wp_register_style('autocompletestyles', WP_PLUGIN_URL.'/search-autocomplete/css/'.get_option('autocomplete_theme').'/jquery-ui-1.8.9.custom.css');
 		wp_enqueue_style('autocompletestyles');
 		wp_enqueue_script('jquery');
-		wp_register_script('autocompletejquery', WP_PLUGIN_URL.'/searchautocomplete/includes/jquery-ui-1.8.9.custom.min.js');
+		wp_register_script('autocompletejquery', WP_PLUGIN_URL.'/search-autocomplete/includes/jquery-ui-1.8.9.custom.min.js');
 		wp_enqueue_script('autocompletejquery');
-		wp_register_script('autocompletescripts', WP_PLUGIN_URL.'/searchautocomplete/autocomplete-scripts.php', array(), '1.0.0');
+		wp_register_script('autocompletescripts', WP_PLUGIN_URL.'/search-autocomplete/autocomplete-scripts.php', array(), '1.0.0');
 		wp_enqueue_script('autocompletescripts');
 	}
 }
@@ -129,7 +129,7 @@ function autocomplete_adminmenu(){
 add_action('admin_menu','autocomplete_adminmenu',1);
 
 function autocomplete_settings_link($links) { 
-  $settings_link = '<a href="options-general.php?page=searchautocomplete/searchautocomplete.php">Settings</a>'; 
+  $settings_link = '<a href="options-general.php?page=search-autocomplete/searchautocomplete.php">Settings</a>'; 
   array_unshift($links, $settings_link); 
   return $links; 
 }
