@@ -6,7 +6,7 @@
  * Version: 0.1
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
- */
+ */  
 function add_search_js() {
 	if (!is_admin()) {
 		wp_register_style('autocompletestyles', WP_PLUGIN_URL.'/search-autocomplete/css/'.get_option('autocomplete_theme').'/jquery-ui-1.8.9.custom.css');
