@@ -1,4 +1,4 @@
-=== Autocompleter ===
+=== SearchAutocomplete ===
 Contributors: Gabe Shackle
 Donate link: http://hereswhatidid.com/contact/
 Tags: jquery autocomplete, jquery ui, themeroller, search, autocomplete, ajax
