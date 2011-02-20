@@ -1,4 +1,4 @@
-<?
+<?php
 function arrayUnique($array, $preserveKeys = false)  
 {  
     // Unique Array for return  
