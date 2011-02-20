@@ -17,6 +17,10 @@ SearchAutocomplete implements the jQuery UI Autocomplete functionality on your W
 * Minimum character count
 * Hotlink resulting Post/Page titles directly to their respective items
 
+== Plugin Official Site ==
+
+<a href="http://hereswhatidid.com/search-autocomplete/">http://hereswhatidid.com/search-autocomplete/</a>
+
 If you have any questions or comments <a href="http://hereswhatidid.com">please contact me</a>.
 
 == Thanks to ==
