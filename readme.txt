@@ -41,7 +41,7 @@ This section describes how to install the plugin and get it working.
 
 == Frequently Asked Questions ==
 
-= Can I just modify the existing theme files rather than upload new jQuery UI Themes?
+= Can I just modify the existing theme files rather than upload new jQuery UI Themes? =
 
 Yes, but it's recommended that you create a copy of the theme that you are going to modify rather than directly editing it.  Future releases of this plugin may overwrite your changes if they are made to default theme files.
 
