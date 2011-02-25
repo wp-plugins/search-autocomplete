@@ -1,7 +1,7 @@
 <?php
 header( 'Content-Type: application/javascript' );
 	function get_root_directory() {
-		$arr_directory = explode('/',dirname(__FILE__));
+		$arr_directory = explode(DIRECTORY_SEPARATOR,dirname(__FILE__));
 		for($i=0;$i<count($arr_directory);$i++) {
 			$strreturn = '';
 			for($j=0;$j<$i;$j++) {
