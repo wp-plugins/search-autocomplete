@@ -4,7 +4,7 @@ Donate link: http://hereswhatidid.com/contact/
 Tags: jquery autocomplete, jquery ui, themeroller, search, autocomplete, ajax
 Requires at least: 3.x
 Tested up to: 3.1.0
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 SearchAutocomplete implements the jQuery UI Autocomplete functionality on your Wordpress installation. 
 
@@ -49,6 +49,8 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 
 == Change log ==
 
+* 1.0.4 [25 Feb 2011] - Directory separator fix specific to server OS
+
 * 1.0.3 [24 Feb 2011] - Directory separator fix
 
 * 1.0.1 [20 Feb 2011] - Fixed a pathing issue for the CSS
@@ -56,6 +58,9 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 * 1.0 [20 Feb 2011] - Initial submition of the plugin
 
 == Upgrade Notice ==
+
+= 1.0.4 =
+Directory separator fix specific to server OS
 
 = 1.0.3 =
 Directory separator fix

@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete
  * Description: Adds jQuery autocomplete functionality to the default Wordpress search box.
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  */  
@@ -98,9 +98,9 @@ function autocomplete_options(){
             <select name="autocomplete_theme" id="autocomplete_theme">
 <?php
 $dir = "css/*";
-$handle = opendir(dirname(__FILE__).'\css\\');
+$handle = opendir(dirname(__FILE__).DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR);
 while (false !== ($file = readdir($handle))) {
-	if ((is_dir(dirname(__FILE__).'\css\\'.$file)) && ($file !== '.') && ($file !== '..')) {
+	if ((is_dir(dirname(__FILE__).DIRECTORY_SEPARATOR.'css'.DIRECTORY_SEPARATOR.$file)) && ($file !== '.') && ($file !== '..')) {
 		echo "<option value='$file'";
 		if (get_option('autocomplete_theme') == $file) {
 			echo " selected='selected'";
@@ -120,7 +120,7 @@ closedir($handle);
     <p class="submit"><input type="submit" name="autocomplete_save" class="button-primary" value="Save Changes" /></p>
   </form>
   </div>
-<?
+<?php
 }
 function autocomplete_adminmenu(){
 	add_options_page('Autocomplete Options', 'Autocomplete', 8, __FILE__, 'autocomplete_options');
