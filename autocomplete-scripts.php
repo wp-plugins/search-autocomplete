@@ -16,7 +16,7 @@ header( 'Content-Type: application/javascript' );
 $path = get_root_directory();
 require_once($path.'/wp-config.php');
 $wpdb =& $GLOBALS['wpdb'];
-$options = $wpdb->get_results("SELECT * FROM `wp_options` WHERE option_name LIKE 'autocomplete_%'");
+$options = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."options WHERE option_name LIKE 'autocomplete_%'");
 $arr_options = array();
 foreach ($options as $option) {
 	$arr_options[$option->option_name] = $option->option_value;
