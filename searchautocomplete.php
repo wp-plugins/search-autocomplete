@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete
  * Description: Adds jQuery autocomplete functionality to the default Wordpress search box.
- * Version: 1.0.5
+ * Version: 1.0.6
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  */  
@@ -18,16 +18,16 @@ function add_search_js() {
 	}
 }
 add_action('init','add_search_js');
-add_option('autocomplete_search_id', '#s', 'Search Field ID.');
-add_option('autocomplete_minimum', 2, 'Autocomplete Trigger.');
-add_option('autocomplete_hotlink_titles', true, 'Hotlink Post/Page Items.');
-add_option('autocomplete_field_posttitle', true, 'Search Field - Post Title.');
-add_option('autocomplete_field_keywords', true, 'Search Field - Keywords.');
-add_option('autocomplete_field_categories', true, 'Search Field - Categories.');
-add_option('autocomplete_theme', 'ui-lightness', 'Drop Down Theme.');
+add_option('autocomplete_search_id', '#s');
+add_option('autocomplete_minimum', 2);
+add_option('autocomplete_hotlink_titles', true);
+add_option('autocomplete_field_posttitle', true);
+add_option('autocomplete_field_keywords', true);
+add_option('autocomplete_field_categories', true);
+add_option('autocomplete_theme', 'ui-lightness');
 function autocomplete_options(){
 	static $config;
-	if($_POST['autocomplete_save']){
+	if(isset($_POST['autocomplete_save'])){
 		$nonce=$_REQUEST['_wpnonce'];
 		if (! wp_verify_nonce($nonce, 'my-nonce') ) die("Security check");
 		update_option('autocomplete_search_id',$_POST['autocomplete_search_id']);
@@ -123,7 +123,7 @@ closedir($handle);
 <?php
 }
 function autocomplete_adminmenu(){
-	add_options_page('Autocomplete Options', 'Autocomplete', 8, __FILE__, 'autocomplete_options');
+	add_options_page('Autocomplete Options', 'Autocomplete', 'edit_pages', __FILE__, 'autocomplete_options');
 }
 add_action('admin_menu','autocomplete_adminmenu',1);
 
