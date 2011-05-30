@@ -1,5 +1,5 @@
 === SearchAutocomplete ===
-Contributors: Gabe Shackle
+Contributors: hereswhatidid
 Donate link: http://hereswhatidid.com/contact/
 Tags: jquery autocomplete, jquery ui, themeroller, search, autocomplete, ajax
 Requires at least: 3.x
@@ -16,6 +16,11 @@ SearchAutocomplete implements the jQuery UI Autocomplete functionality on your W
 * Generic field selection. Any valid jQuery selector can be used to pick the search field
 * Minimum character count
 * Hotlink resulting Post/Page titles directly to their respective items
+
+[Contact Author](http://hereswhatidid.com/contact/)
+
+= Contributors =
+[Gabe Shackle](http://hereswhatidid.com)
 
 == Plugin Official Site ==
 
@@ -49,19 +54,27 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 
 == Change log ==
 
-* 1.0.8 [28 May 2011] - Fixed issues resulting from no value entered for option fields.  Added options for linking directly to keyword/category term pages.
+= 1.0.8 - 28 May 2011
+* Fixed issues resulting from no value entered for option fields.
+* Added options for linking directly to keyword/category term pages.
 
-* 1.0.6 [23 Mar 2011] - Removed deprecated function calls
+= 1.0.6 - 23 Mar 2011
+* Removed deprecated function calls
 
-* 1.0.5 [26 Feb 2011] - Database prefix adjustment
+= 1.0.5 - 26 Feb 2011
+* Database prefix adjustment
 
-* 1.0.4 [25 Feb 2011] - Directory separator fix specific to server OS
+= 1.0.4 - 25 Feb 2011
+* Directory separator fix specific to server OS
 
-* 1.0.3 [24 Feb 2011] - Directory separator fix
+= 1.0.3 - 24 Feb 2011
+* Directory separator fix
 
-* 1.0.1 [20 Feb 2011] - Fixed a pathing issue for the CSS
+= 1.0.1 - 20 Feb 2011
+* Fixed a pathing issue for the CSS
 
-* 1.0 [20 Feb 2011] - Initial submition of the plugin
+= 1.0 - 20 Feb 2011
+* Initial submition of the plugin
 
 == Upgrade Notice ==
 
