@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete
  * Description: Adds jQuery autocomplete functionality to the default Wordpress search box.
- * Version: 1.0.7
+ * Version: 1.0.8
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  */  
