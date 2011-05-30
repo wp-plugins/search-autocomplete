@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete
  * Description: Adds jQuery autocomplete functionality to the default Wordpress search box.
- * Version: 1.0.6
+ * Version: 1.0.7
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  */  
@@ -19,8 +19,10 @@ function add_search_js() {
 }
 add_action('init','add_search_js');
 add_option('autocomplete_search_id', '#s');
-add_option('autocomplete_minimum', 2);
+add_option('autocomplete_minimum', 3);
 add_option('autocomplete_hotlink_titles', true);
+add_option('autocomplete_hotlink_keywords', true);
+add_option('autocomplete_hotlink_categories', true);
 add_option('autocomplete_field_posttitle', true);
 add_option('autocomplete_field_keywords', true);
 add_option('autocomplete_field_categories', true);
@@ -33,6 +35,8 @@ function autocomplete_options(){
 		update_option('autocomplete_search_id',$_POST['autocomplete_search_id']);
 		update_option('autocomplete_minimum',$_POST['autocomplete_minimum']);
 		update_option('autocomplete_hotlink_titles',$_POST['autocomplete_hotlink_titles']);
+		update_option('autocomplete_hotlink_keywords',$_POST['autocomplete_hotlink_keywords']);
+		update_option('autocomplete_hotlink_categories',$_POST['autocomplete_hotlink_categories']);
 		update_option('autocomplete_field_posttitle',$_POST['autocomplete_field_posttitle']);
 		update_option('autocomplete_field_keywords',$_POST['autocomplete_field_keywords']);
 		update_option('autocomplete_field_categories',$_POST['autocomplete_field_categories']);
@@ -65,12 +69,18 @@ function autocomplete_options(){
           </fieldset></td>
       </tr>
       <tr valign="top">
-        <th scope="row">Hotlink Post/Page Items</th>
+        <th scope="row">Hotlink Items<br /><small>Adjusts the click action on<br />drop down items.</small></th>
         <td><fieldset>
-            <legend class="screen-reader-text"><span>Hotlink Post/Page Items</span></legend>
-             <label for="autocomplete_hotlink_titles">
+            <legend class="screen-reader-text"><span>Hotlink Items</span></legend>
+             <p><label for="autocomplete_hotlink_titles">
                 <input name="autocomplete_hotlink_titles" type="checkbox" id="autocomplete_hotlink_titles" value="1" <?php checked( get_option('autocomplete_hotlink_titles'), 1 ); ?> />
-                If a post or page is found in the Autocomplete results, clicking it will immediately go to that post or page rather than the search field population.</label>
+                Link to post or page.</label></p>
+             <p><label for="autocomplete_hotlink_keywords">
+                <input name="autocomplete_hotlink_keywords" type="checkbox" id="autocomplete_hotlink_keywords" value="1" <?php checked( get_option('autocomplete_hotlink_keywords'), 1 ); ?> />
+                Link to keyword taxonomy page.</label></p>
+             <p><label for="autocomplete_hotlink_categories">
+                <input name="autocomplete_hotlink_categories" type="checkbox" id="autocomplete_hotlink_categories" value="1" <?php checked( get_option('autocomplete_hotlink_categories'), 1 ); ?> />
+                Link to category taxonomy page.</label></p>
           </fieldset></td>
       </tr>
       <tr valign="top">

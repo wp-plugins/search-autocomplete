@@ -3,8 +3,8 @@ Contributors: Gabe Shackle
 Donate link: http://hereswhatidid.com/contact/
 Tags: jquery autocomplete, jquery ui, themeroller, search, autocomplete, ajax
 Requires at least: 3.x
-Tested up to: 3.1.0
-Stable tag: 1.0.6
+Tested up to: 3.1.3
+Stable tag: 1.0.7
 
 SearchAutocomplete implements the jQuery UI Autocomplete functionality on your Wordpress installation. 
 
@@ -48,6 +48,8 @@ Yes, but it's recommended that you create a copy of the theme that you are going
 Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for support. Thanks!
 
 == Change log ==
+
+* 1.0.8 [28 May 2011] - Fixed issues resulting from no value entered for option fields.  Added options for linking directly to keyword/category term pages.
 
 * 1.0.6 [23 Mar 2011] - Removed deprecated function calls
 

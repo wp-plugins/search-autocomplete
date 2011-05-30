@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 header( 'Content-Type: application/javascript' );
 	function get_root_directory() {
 		$arr_directory = explode(DIRECTORY_SEPARATOR,dirname(__FILE__));
@@ -15,18 +16,20 @@ header( 'Content-Type: application/javascript' );
 	}  
 $path = get_root_directory();
 require_once($path.'/wp-config.php');
-$wpdb =& $GLOBALS['wpdb'];
+$wpdb = $GLOBALS['wpdb'];
 $options = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."options WHERE option_name LIKE 'autocomplete_%'");
 $arr_options = array();
 foreach ($options as $option) {
 	$arr_options[$option->option_name] = $option->option_value;
 }
+$autoid = ((isset($arr_options['autocomplete_search_id'])) && ($arr_options['autocomplete_search_id'] !== '')) ? $arr_options['autocomplete_search_id'] : '#s';
+$autominimum = ((isset($arr_options["autocomplete_minimum"])) && ($arr_options["autocomplete_minimum"] !== '')) ? $arr_options["autocomplete_minimum"] : 3;
 ?>
 (function($) {
 	$(function() {
-		$('<?php echo $arr_options['autocomplete_search_id'] ?>').autocomplete({
+		$('<?php echo $autoid; ?>').autocomplete({
 			source: '<?php echo dirname($_SERVER["REQUEST_URI"]).'/includes/tags.php'; ?>',
-			minLength: <?php echo $arr_options["autocomplete_minimum"]; ?>,
+			minLength: <?php echo $autominimum; ?>,
       select: function(event, ui) {
       	if (ui.item.url !== 'none') {
         	location = ui.item.url;

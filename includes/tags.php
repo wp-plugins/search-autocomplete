@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 function arrayUnique($array, $preserveKeys = false)  
 {  
     // Unique Array for return  
@@ -60,7 +61,7 @@ if ($_GET['term'] != '') {
 		}
 	}
 	if (($arr_options["autocomplete_field_categories"] == 1) || ($arr_options["autocomplete_field_keywords"] == 1)) {
-		$str_sql = "SELECT name, sum( count ) cnt FROM ".$wpdb->prefix."terms t, ".$wpdb->prefix."term_taxonomy tt WHERE t.term_id = tt.term_id AND (";
+		$str_sql = "SELECT t.term_id, name, t.slug, tt.taxonomy, sum( count ) cnt FROM ".$wpdb->prefix."terms t, ".$wpdb->prefix."term_taxonomy tt WHERE t.term_id = tt.term_id AND (";
 		if ($arr_options["autocomplete_field_categories"] == 1) {
 			$str_sql .= "tt.taxonomy = 'category'";
 		}
@@ -74,7 +75,11 @@ if ($_GET['term'] != '') {
 		$titles = $wpdb->get_results($str_sql);
 		foreach ($titles as $word){
 			$row_array['label'] = $word->name;
-			$row_array['url'] = 'none';
+			if ($arr_options["autocomplete_hotlink_keywords"] == 1) {
+				$row_array['url'] = get_term_link($word->slug, $word->taxonomy);
+			} else {
+				$row_array['url'] = 'none';
+			}
 			array_push($return_arr,$row_array);
 		}
 	}
