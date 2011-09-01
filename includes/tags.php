@@ -1,5 +1,22 @@
 <?php
 error_reporting(0);
+
+function clean($str = '', $html = false) {
+	if (empty($str)) return;
+
+	if (is_array($str)) {
+			foreach($str as $key => $value) $str[$key] = clean($value, $html);
+	} else {
+		if (get_magic_quotes_gpc()) $str = stripslashes($str);
+
+		if (is_array($html)) $str = strip_tags($str, implode('', $html));
+		elseif (preg_match('|<([a-z]+)>|i', $html)) $str = strip_tags($str, $html);
+		elseif ($html !== true) $str = strip_tags($str);
+
+		$str = trim($str);
+	}
+	return $str;
+}
 function arrayUnique($array, $preserveKeys = false)  
 {  
     // Unique Array for return  
@@ -23,8 +40,9 @@ function arrayUnique($array, $preserveKeys = false)
         }  
     }  
     return $arrayRewrite;  
-}  
-if ($_GET['term'] != '') {
+} 
+$term = clean($_GET['term']); 
+if ($term != '') {
 	
 	function get_root_directory() {
 		$arr_directory = explode(DIRECTORY_SEPARATOR,dirname(__FILE__));
@@ -49,7 +67,7 @@ if ($_GET['term'] != '') {
 	}
 	$return_arr = array();	
 	if ($arr_options["autocomplete_field_posttitle"] == 1) {
-		$titles = $wpdb->get_results("SELECT post_title As name, ID as post_id, guid AS url, 1 cnt FROM ".$wpdb->prefix."posts t WHERE post_status='publish' and (post_type='post' OR post_type='page') and post_date < NOW() and post_title LIKE '%".$_GET['term']."%' ORDER BY post_title");
+		$titles = $wpdb->get_results("SELECT post_title As name, ID as post_id, guid AS url, 1 cnt FROM ".$wpdb->prefix."posts t WHERE post_status='publish' and (post_type='post' OR post_type='page') and post_date < NOW() and post_title LIKE '%".mysql_real_escape_string($term)."%' ORDER BY post_title");
 		foreach ($titles as $word){
 			$row_array['label'] = $word->name;
 			if ($arr_options["autocomplete_hotlink_titles"] == 1) {
@@ -71,7 +89,7 @@ if ($_GET['term'] != '') {
 		if ($arr_options["autocomplete_field_keywords"] == 1) {
 			$str_sql .= "tt.taxonomy = 'post_tag'";
 		}
-		$str_sql .= ") AND name LIKE '%".$_GET['term']."%' GROUP BY t.name ORDER BY cnt DESC";
+		$str_sql .= ") AND name LIKE '%".mysql_real_escape_string($term)."%' GROUP BY t.name ORDER BY cnt DESC";
 		$titles = $wpdb->get_results($str_sql);
 		foreach ($titles as $word){
 			$row_array['label'] = $word->name;

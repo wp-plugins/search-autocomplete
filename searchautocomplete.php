@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete
  * Description: Adds jQuery autocomplete functionality to the default Wordpress search box.
- * Version: 1.0.8
+ * Version: 1.0.9
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  */  
@@ -32,7 +32,7 @@ function autocomplete_options(){
 	if(isset($_POST['autocomplete_save'])){
 		$nonce=$_REQUEST['_wpnonce'];
 		if (! wp_verify_nonce($nonce, 'my-nonce') ) die("Security check");
-		update_option('autocomplete_search_id',$_POST['autocomplete_search_id']);
+		update_option('autocomplete_search_id',stripslashes(htmlspecialchars_decode($_POST['autocomplete_search_id'])));
 		update_option('autocomplete_minimum',$_POST['autocomplete_minimum']);
 		update_option('autocomplete_hotlink_titles',$_POST['autocomplete_hotlink_titles']);
 		update_option('autocomplete_hotlink_keywords',$_POST['autocomplete_hotlink_keywords']);
@@ -55,8 +55,10 @@ function autocomplete_options(){
         <td><fieldset>
             <legend class="screen-reader-text"><span>Search Field ID</span></legend>
              <label for="autocomplete_search_id">
-                <input name="autocomplete_search_id" type="text" id="autocomplete_search_id" value="<?php echo get_option('autocomplete_search_id') ?>" class="medium-text" /><br />
-                Any valid jQuery selector will work. Default search box for Wordpress is "#s".</label>
+                <input name="autocomplete_search_id" type="text" id="autocomplete_search_id" value="<?php echo htmlspecialchars(get_option('autocomplete_search_id')) ?>" class="medium-text" /><br />
+                Any valid jQuery selector will work.<br />
+                Default search box for Wordpress < 3.2 is '#s'.<br />
+                Default search box for Wordpress >= 3.2 is 'name=["s"]'.</label>
           </fieldset></td>
       </tr>
       <tr valign="top">

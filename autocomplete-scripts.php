@@ -17,12 +17,14 @@ header( 'Content-Type: application/javascript' );
 $path = get_root_directory();
 require_once($path.'/wp-config.php');
 $wpdb = $GLOBALS['wpdb'];
+$defaultselector = (version_compare($GLOBALS['wp_version'],'3.1')) ? 'name=["s"]' : '#s';
+
 $options = $wpdb->get_results("SELECT * FROM ".$wpdb->prefix."options WHERE option_name LIKE 'autocomplete_%'");
 $arr_options = array();
 foreach ($options as $option) {
 	$arr_options[$option->option_name] = $option->option_value;
 }
-$autoid = ((isset($arr_options['autocomplete_search_id'])) && ($arr_options['autocomplete_search_id'] !== '')) ? $arr_options['autocomplete_search_id'] : '#s';
+$autoid = ((isset($arr_options['autocomplete_search_id'])) && ($arr_options['autocomplete_search_id'] !== '')) ? stripslashes(htmlspecialchars_decode($arr_options['autocomplete_search_id'])) : $defaultselector;
 $autominimum = ((isset($arr_options["autocomplete_minimum"])) && ($arr_options["autocomplete_minimum"] !== '')) ? $arr_options["autocomplete_minimum"] : 3;
 ?>
 (function($) {
