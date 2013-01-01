@@ -4,7 +4,7 @@ Donate link: http://hereswhatidid.com/contact/
 Tags: jquery autocomplete, jquery ui, themeroller, search, autocomplete, ajax
 Requires at least: 3.x
 Tested up to: 3.5.0
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 
 SearchAutocomplete implements the jQuery UI Autocomplete functionality on your Wordpress installation. 
 
@@ -57,7 +57,10 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 
 == Change log ==
 
-= 2.0.0 - 29 Dev 2012
+= 2.0.1 - 1 Jan 2012
+* Fixed bug with existing stylesheet paths not resolving properly
+
+= 2.0.0 - 29 Dec 2012
 * Complete overhaul to use the built-in WordPress AJAX methods
 * Added support for custom post types
 * Added support for custom taxonomies
