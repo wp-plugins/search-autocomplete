@@ -57,6 +57,11 @@ Please <a href="http://hereswhatidid.com/contact/">contact the author</a> for su
 
 == Change log ==
 
+= 2.0.4 - 10 Jun 2013 =
+* Fixed bug with ThemeRoller dropdown generation
+* Fixed bug with Taxonomy searches that left blank titles in the dropdown
+* Add ability to style the matching characters in the dropdown
+
 = 2.0.2 - 1 Jun 2013 =
 * Fixed bug with saving settings and no post types are selected
 * Added option for disabling plugin styles
