@@ -8,6 +8,8 @@
 
 		options.fieldName = $('<div />').html(options.fieldName).text();
 
+		
+
 		$(options.fieldName).autocomplete({
 			source: function( request, response ) {
 			    $.ajax({
@@ -31,7 +33,7 @@
 			        }
 			    });
 			},
-			minLength: 2,
+			minLength: options.minLength,
 			search: function(event, ui) {
 				$(event.currentTarget).addClass('sa_searching');
 			},
