@@ -6,6 +6,7 @@
  * Version: 2.0.5
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
+ * License: GPLv2 or later
  */
 class SearchAutocomplete {
 	protected static $options_field = "sa_settings";
