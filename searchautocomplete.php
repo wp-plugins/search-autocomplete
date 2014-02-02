@@ -3,7 +3,7 @@
  * Plugin Name: Search Autocomplete
  * Plugin URI: http://hereswhatidid.com/search-autocomplete/
  * Description: Adds jQuery Autocomplete functionality to the default WordPress search box.
- * Version: 2.1.2
+ * Version: 2.1.3
  * Author: Gabe Shackle
  * Author URI: http://hereswhatidid.com
  * License: GPLv2 or later
@@ -285,7 +285,7 @@ class SearchAutocomplete {
 		<p class="description">
 			<?php _e( "Any valid CSS selector will work.", "search-autocomplete" ); ?><br>
 			<?php _e( "The default search box for TwentyTwelve, TwentyEleven, and TwentyTen is '#s'.", "search-autocomplete" ); ?><br>
-			<?php _e( "The default search box for TwentyThirteen is '[name=\"#s\"]'.", "search-autocomplete" ); ?>
+			<?php _e( "The default search box for TwentyThirteen is '[name=\"s\"]'.", "search-autocomplete" ); ?>
 		</p>
 	<?php
 	}
