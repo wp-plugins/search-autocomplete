@@ -3,7 +3,7 @@
 Plugin Name: Search Autocomplete
 Plugin URI: http://hereswhatidid.com/search-autocomplete/
 Description: Adds jQuery Autocomplete functionality to the default WordPress search box.
-Version: 2.1.12
+Version: 2.1.14
 Author: Gabe Shackle
 Author URI: http://hereswhatidid.com
 License: GPLv2 or later
@@ -30,7 +30,7 @@ class SearchAutocomplete {
 		'autocomplete_delay'              => 500,
 		'autocomplete_autofocus'          => 'false',
 		'autocomplete_relevanssi'         => 'true',
-		'autocomplete_theme'              => '/redmond/jquery-ui-1.9.2.custom.min.css',
+		'autocomplete_theme'              => '/aristo/jquery-ui-aristo.min.css',
 		'autocomplete_custom_theme'       => '',
 	);
 	protected static $options_init = array(
@@ -49,7 +49,7 @@ class SearchAutocomplete {
 		'autocomplete_delay'              => 500,
 		'autocomplete_autofocus'          => 'false',
 		'autocomplete_relevanssi'         => 'true',
-		'autocomplete_theme'              => '/redmond/jquery-ui-1.9.2.custom.min.css',
+		'autocomplete_theme'              => '/aristo/jquery-ui-aristo.min.css',
 		'autocomplete_custom_theme'       => '',
 	);
 
@@ -198,6 +198,11 @@ class SearchAutocomplete {
 		} else {
 			$results = array_merge( $resultsTerms, $resultsPosts );
 		}
+
+		foreach( $results as $index => $result ) {
+			$results[$index]['title'] = htmlspecialchars_decode( $result['title'] );
+		}
+
 		$results = apply_filters( 'search_autocomplete_modify_results', $results );
 		echo json_encode( array( 'results' => array_slice( $results, 0, $this->options['autocomplete_numrows'] ) ) );
 		die();
